@@ -3,7 +3,6 @@ from fastapi import HTTPException
 from config import Config
 
 def authenticate_odoo():
-    """Autenticación con Odoo y retorno del UID."""
     try:
         common = xmlrpc.client.ServerProxy(f"{Config.ODOO_URL}/xmlrpc/2/common")
         uid = common.authenticate(Config.ODOO_DB, Config.ODOO_USERNAME, Config.ODOO_PASSWORD, {})

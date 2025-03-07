@@ -8,4 +8,8 @@ class Config:
     ODOO_DB = os.getenv("ODOO_DB")
     ODOO_USERNAME = os.getenv("ODOO_USERNAME")
     ODOO_PASSWORD = os.getenv("ODOO_PASSWORD")
-    ALLOWED_ORIGINS = ["http://localhost:5173", "https://frontend-trigono-production.up.railway.app"]
+    
+    ALLOWED_ORIGINS = [
+        os.getenv("ALLOWED_ORIGINS_LOCALHOST"),
+        os.getenv("ALLOWED_ORIGINS_PROD")
+    ]
