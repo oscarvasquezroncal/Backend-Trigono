@@ -17,7 +17,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], 
+    allow_origins=["http://localhost:5173", "https://frontend-trigono-production.up.railway.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -62,5 +62,5 @@ def get_orders():
         raise HTTPException(status_code=500, detail=f"Error en consulta de órdenes: {str(e)}")
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000)) 
+    port = int(os.getenv("PORT", 8080)) 
     uvicorn.run(app, host="0.0.0.0", port=port)
